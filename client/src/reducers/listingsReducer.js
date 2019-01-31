@@ -4,7 +4,7 @@ const initialState = {
   categories: [],
   currentCategory: {
     category: {},
-    listings: []
+    listings:[]
   },
   currentListing: {}
 }
@@ -15,14 +15,11 @@ export default function (state = initialState, action) {
       return {...state, categories: action.payload}
     case 'GET_CATEGORY':
       return {...state, currentCategory: {
-        // based on slug given to me, grab the one category and put into category (currentCategory)
-        // and listings is from database
         category: state.categories.find(category => category.slug === action.payload.slug),
         listings: action.payload.listings
       }}
-    case "GET_LISTING":
+    case 'GET_LISTING':
       return {...state, currentListing: action.payload}
-    default:
+    }
       return state
   }
-}

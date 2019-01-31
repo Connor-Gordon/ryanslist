@@ -1,10 +1,8 @@
-
 import React, { Component } from 'react'
 import { Provider } from 'react-redux'
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom' 
 import store from '../store'
-import '../styles/styles.css'
-
+import '../styles/App.css'
 
 import Categories from './Categories'
 import Category from './Category'
@@ -16,12 +14,13 @@ class App extends Component {
     return (
       <Provider store={store}>
         <Router>
-          <div id="main">
-          <Switch>
-              <Route path="/" exact component={Categories} />
-              <Route path="/create/:slug" component={Create}/>
-              <Route path="/listing/:id" component={Listing}/>
-              <Route path="/:slug" component={Category} />
+          <div>
+            <Switch>
+            <Route path="/" exact component={Categories} />
+            <Route path="/create/:slug"component={Create} />
+            <Route path="/listing/:id" component={Listing} />
+            <Route path="/:slug" component={Category} />
+            
             </Switch>
           </div>
         </Router>
